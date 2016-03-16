@@ -1,0 +1,10 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+#siteHeader {
+  margin: 10px 10px 10px 10px;
+  color: white;
+}
+
+#rightNavBarContainer {
+  margin: 10px 10px 10px 10px;
+}
