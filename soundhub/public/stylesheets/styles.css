@@ -1,10 +1,37 @@
+html, body, .container-table {
+    height: 100%;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.container-table {
+    display: table;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.prm-button-input-with-text {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.navBarContainer {
+  margin: 15px 10px 15px 10px;
+}
 
 #siteHeader {
   margin: 10px 10px 10px 10px;
   color: white;
-}
-
-#rightNavBarContainer {
-  margin: 10px 10px 10px 10px;
 }

@@ -1,19 +1,29 @@
-var app = angular.module('sndhub', ['ui.bootstrap']);
+var app = angular.module('sndhub', ['ui.router', 'ui.bootstrap']);
 
-app.service('soundcloudService',['$http', function($http){
-    this.connect = function(){
-      return $http.get('/connect');
-    };
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('unauthenticated', {
+      url:'/',
+      templateUrl: '/unauthenticated.html',
+      controller: 'UnauthenticatedCtrl'
+    });
+    $stateProvider.state('highlights', {
+      url:'/highlights',
+      templateUrl: '/highlights.html',
+      controller: 'HighlightsCtrl'
+    });
+    $urlRouterProvider.otherwise('/');
 }]);
 
-app.controller('NavBarCtrl', ['$scope', function($scope) {
-    $scope.optionsItems = [
-      'likes',
-      'playlists',
-      'friends'
-    ];
+// app.service('soundcloudService',['$http', function($http){
+//     this.connect = function(){
+//
+//     };
+// }]);
+
+app.controller('UnauthenticatedCtrl', ['$scope', function($scope) {
+    $scope.test = 'test';
 
     $scope.connect = function() {
-      soundcloudService.connect();
+      SC.connect();
     };
 }]);
