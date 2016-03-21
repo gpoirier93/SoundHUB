@@ -1,31 +1,62 @@
 <html>
   <head>
     <title>sndhub</title>
+    <base href="/"/>
     <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/sound-player-styles.css">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script> -->
+    <script src="//code.angularjs.org/1.5.1/angular-route.js"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <script src="/javascripts/ui-bootstrap-tpls-0.9.0.min.js"></script>
     <script src="/javascripts/angularApp.js"></script>
-    <script src="/javascripts/directives/ejsDirectives.js"></script>
+    <script src="/javascripts/services/soundManager.js"></script>
     <script src="/javascripts/factories/authFactory.js"></script>
     <script src="/javascripts/controllers/homeController.js"></script>
     <script src="/javascripts/controllers/navigationBarController.js"></script>
     <script src="/javascripts/controllers/highlightsController.js"></script>
+    <script src="/javascripts/controllers/soundPlayerController.js"></script>
   </head>
   <body ng-app="sndhub" ng-controller="HomeCtrl">
-    <div>
-      <nav-bar></nav-bar>
-      <ui-view></ui-view>
+    <div id="main">
+      <header>
+        <div ng-controller="NavBarCtrl">
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                  <img alt="Brand" src="http://127.0.0.1:3000/images/logo-soundhub-dark-small.png"/>
+                </a>
+              </div>
+              <div class="collapse navbar-collapse navBarContainer">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Feeds<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li ng-repeat="option in feedsOptions"><a href="{{option.path}}">{{option.title}}</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navBarContainer">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                    <ul class="dropdown-menu">
+                      <li ng-repeat="option in navigationOptions"><a href="#">{{option}}</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      </br>
+      </br>
+      <div ng-view></div>
     </div>
-    <script type="text/ng-template" id="/unauthenticated.html">
-      <unauthenticated-home></unauthenticated-home>
-    </script>
-    <script type="text/ng-template" id="/highlights.html">
-      <highlights></highlights>
-    </script>
   </body>
 </html>

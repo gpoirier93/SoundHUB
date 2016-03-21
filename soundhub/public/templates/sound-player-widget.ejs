@@ -1,0 +1,35 @@
+<div class="panel panel-default" ng-controller="SoundPlayerCtrl">
+  <div class="panel-body">
+    <table>
+      <tr>
+        <td>
+          <a href="#">
+            <img id="track_artwork" class="media-object" src="{{track.artwork_url}}" alt="{{track.title}}">
+          </a>
+        </td>
+        <td>
+          <table id="sound-player-content-table">
+            <tr>
+              <td class="inner-table-td" style="width:50px;">
+                <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
+                  <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
+                </button>
+              </td>
+              <td class="inner-table-td">
+                <h6 style="margin-top:5px;margin-bottom:0px">{{track.user.username}}</h6>
+                <h4 style="margin-top:8px;margin-bottom:5px">{{track.title}}</h4>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="inner-table-td">
+                <div style="background-color:black;border-radius:8px;">
+                  <img id="track_wave_form" class="media-object img-rounded" src="{{track.waveform_url}}">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
