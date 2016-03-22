@@ -12,9 +12,9 @@
           <table id="sound-player-content-table">
             <tr>
               <td class="inner-table-td" style="width:50px;">
-                <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
-                  <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
-                </button>
+                  <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
+                    <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
+                  </button>
               </td>
               <td class="inner-table-td">
                 <h6 style="margin-top:5px;margin-bottom:0px">{{track.user.username}}</h6>
@@ -24,7 +24,7 @@
             <tr>
               <td colspan="2" class="inner-table-td">
                 <div id="track-wave-form-super-container">
-                  <div id="progression-bar"></div>
+                  <div id="progression-bar" ng-class="isPlaying ? 'progression-bar-active':'progression-bar-paused'" style="animation-duration:{{track.duration}}ms;"></div>
                   <img id="track-wave-form" class="media-object img-rounded" src="{{track.waveform_url}}">
                 </div>
               </td>

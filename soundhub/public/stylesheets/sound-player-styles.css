@@ -23,11 +23,30 @@
   left: 0;
 }
 
-#progression-bar{
-  width: 50%;
-  height: 100%;
-  background-color: blue;
+@keyframes playback-progression {
+  from {width:0%;}
+  to {width:100%;}
 }
+
+#progression-bar{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation-name: playback-progression;
+  animation-timing-function: linear;
+}
+
+.progression-bar-active {
+  animation-play-state: running;
+}
+
+.progression-bar-paused {
+  animation-play-state: paused;
+}
+
+/*.progression-bar-initial {
+  animation-play-state: initial;
+}*/
 
 #track-wave-form {
   width: 100%;

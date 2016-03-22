@@ -15,7 +15,7 @@ app.service('soundManager', ['$log', function($log) {
         currentPlayer = player;
 
         currentPlayer.on('play', function() {
-          playCallback();
+          playCallback(currentTrack.duration);
         });
         currentPlayer.on('pause', function() {
           pauseCallback();
