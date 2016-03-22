@@ -1,8 +1,9 @@
+<!-- <h1>test</h1> -->
 <div class="panel panel-default" ng-controller="SoundPlayerCtrl">
   <div class="panel-body">
-    <table>
+    <table style="width:100%;">
       <tr>
-        <td>
+        <td style="width:100px;">
           <a href="#">
             <img id="track_artwork" class="media-object" src="{{track.artwork_url}}" alt="{{track.title}}">
           </a>
@@ -22,8 +23,9 @@
             </tr>
             <tr>
               <td colspan="2" class="inner-table-td">
-                <div style="background-color:black;border-radius:8px;">
-                  <img id="track_wave_form" class="media-object img-rounded" src="{{track.waveform_url}}">
+                <div id="track-wave-form-super-container">
+                  <div id="progression-bar"></div>
+                  <img id="track-wave-form" class="media-object img-rounded" src="{{track.waveform_url}}">
                 </div>
               </td>
             </tr>

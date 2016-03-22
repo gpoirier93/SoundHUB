@@ -3,11 +3,9 @@
     <h1>Highlights</h1>
   </div>
   <ul style="list-style-type: none;padding-left:0px;">
-    <!-- <li ng-repeat="track in tracks"> -->
-    <li>
-      <div ng-include="'sound-player-widget.ejs'"></div>
+    <li ng-repeat="track in tracks">
+      <div ng-include="'/templates/sound-player-widget.ejs'"></div>
     </li>
-    <!-- </br> -->
-    </li>
+    </br>
   </ul>
 </div>

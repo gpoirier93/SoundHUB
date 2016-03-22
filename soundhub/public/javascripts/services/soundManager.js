@@ -3,13 +3,24 @@ app.service('soundManager', ['$log', function($log) {
   var currentTrack;
   var isPlayerPlaying = false;
 
-  this.play = function(track) {
+  this.play = function(track, playCallback, pauseCallback) {
     if (currentPlayer && currentTrack && currentTrack.id === track.id) {
       currentPlayer.play();
     } else {
+      $log.log(track.id);
       currentTrack = track;
+      this.pause();
       SC.stream('/tracks/'+ track.id).then(function(player) {
+        $log.log('stream');
         currentPlayer = player;
+
+        currentPlayer.on('play', function() {
+          playCallback();
+        });
+        currentPlayer.on('pause', function() {
+          pauseCallback();
+        });
+
         currentPlayer.play();
       });
     }

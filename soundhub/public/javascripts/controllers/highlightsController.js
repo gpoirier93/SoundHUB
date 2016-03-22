@@ -1,6 +1,6 @@
 app.controller('HighlightsCtrl', ['$scope','$log', function($scope, $log) {
-  SC.get('/tracks/150228455').then(function(track) {
-    $scope.track = track;
+  SC.get('/resolve?url=https://soundcloud.com/oblivioustalk/sets/otc1').then(function(playlist) {
+    $scope.tracks = playlist.tracks;
     $scope.$applyAsync();
   });
 }]);
