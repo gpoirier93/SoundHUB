@@ -4,7 +4,7 @@
   </div>
   <ul style="list-style-type: none;padding-left:0px;">
     <li ng-repeat="track in tracks">
-      <div ng-include="'/templates/sound-player-widget.ejs'"></div>
+      <div ng-include="'/templates/sound-player-widget.ejs'" ng-controller="SoundPlayerCtrl"></div>
     </li>
     </br>
   </ul>

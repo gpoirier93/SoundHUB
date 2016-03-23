@@ -3,7 +3,7 @@ app.service('soundManager', ['$log', function($log) {
   var currentTrack;
   var isPlayerPlaying = false;
 
-  this.play = function(track, playCallback, pauseCallback) {
+  this.play = function(track, playCallback, pauseCallback, finishCallback) {
     if (currentPlayer && currentTrack && currentTrack.id === track.id) {
       currentPlayer.play();
     } else {
@@ -20,6 +20,9 @@ app.service('soundManager', ['$log', function($log) {
         currentPlayer.on('pause', function() {
           pauseCallback();
         });
+        currentPlayer.on('finish', function() {
+          finishCallback();
+        });
 
         currentPlayer.play();
       });
@@ -29,6 +32,18 @@ app.service('soundManager', ['$log', function($log) {
   this.pause = function() {
     if (currentPlayer) {
       currentPlayer.pause();
+    }
+  }
+  this.seek = function(time, shouldPlay) {
+    if (currentPlayer) {
+      currentPlayer.seek(time);
+    }
+  }
+  this.currentTime = function() {
+    if (currentPlayer) {
+      return currentPlayer.currentTime();
+    } else {
+      return 0;
     }
   }
 }]);

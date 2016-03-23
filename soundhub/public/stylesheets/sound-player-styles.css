@@ -12,41 +12,22 @@
 #track-wave-form-super-container {
   width: 100%;
   height: 50px;
+  border-radius: 8px;
   position: relative;
 }
 
 #track-wave-form,
 #progression-bar {
   position: absolute;
-  border-radius: 8px;
   top: 0;
   left: 0;
 }
 
-@keyframes playback-progression {
-  from {width:0%;}
-  to {width:100%;}
-}
-
 #progression-bar{
-  width: 100%;
+  width: 0%;
   height: 100%;
   background-color: black;
-  animation-name: playback-progression;
-  animation-timing-function: linear;
 }
-
-.progression-bar-active {
-  animation-play-state: running;
-}
-
-.progression-bar-paused {
-  animation-play-state: paused;
-}
-
-/*.progression-bar-initial {
-  animation-play-state: initial;
-}*/
 
 #track-wave-form {
   width: 100%;

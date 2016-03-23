@@ -1,5 +1,4 @@
-<!-- <h1>test</h1> -->
-<div class="panel panel-default" ng-controller="SoundPlayerCtrl">
+<div class="panel panel-default">
   <div class="panel-body">
     <table style="width:100%;">
       <tr>
@@ -24,8 +23,9 @@
             <tr>
               <td colspan="2" class="inner-table-td">
                 <div id="track-wave-form-super-container">
-                  <div id="progression-bar" ng-class="isPlaying ? 'progression-bar-active':'progression-bar-paused'" style="animation-duration:{{track.duration}}ms;"></div>
-                  <img id="track-wave-form" class="media-object img-rounded" src="{{track.waveform_url}}">
+                  <div id="progression-bar"></div>
+                  <!-- <div id="progression-bar" ng-class="isPlaying ? 'progression-bar-active':'progression-bar-paused'" style="animation-duration:{{progressDuration}}ms;"></div> -->
+                  <img id="track-wave-form" class="media-object" src="{{track.waveform_url}}" ng-click="onSeekClick($event)">
                 </div>
               </td>
             </tr>
