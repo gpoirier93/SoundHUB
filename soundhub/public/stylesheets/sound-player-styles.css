@@ -4,9 +4,32 @@
   border-radius: 22px;
 }
 
+@keyframes hover-animation{
+  from {
+     box-shadow: 0 0px 0px 0px #000000;
+     -webkit-transform: scale(1);
+     transform: scale(1);
+  } to {
+    box-shadow: 0 10px 10px -10px #000000;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.01);
+  }
+}
+
 #track-artwork {
   width: 100px ;
   height: 100px;
+}
+
+.img-brightness-invert {
+  /*-webkit-filter: opacity(0.5);
+  filter: invert(100%);*/
+}
+
+#track-artwork-div:hover {
+  animation-name: hover-animation;
+  animation-fill-mode: both;
+  animation-duration: 0.2s;
 }
 
 #track-wave-form-super-container {
@@ -14,6 +37,7 @@
   height: 50px;
   border-radius: 8px;
   position: relative;
+  /*background-color: white;*/
 }
 
 #track-wave-form,
@@ -23,10 +47,11 @@
   left: 0;
 }
 
-#progression-bar{
+#progression-bar {
+  background-color: 888888;
+  opacity: 0.6;
   width: 0%;
   height: 100%;
-  background-color: black;
 }
 
 #track-wave-form {
@@ -38,18 +63,6 @@
 #sound-player-content-table {
   height: 100%;
   width:100%;
-}
-
-#no-comment-label {
-  vertical-align: bottom;
-  height: 100%;
-  padding-top: 8px;
-  margin: 0px;
-  height: 100%;
-}
-
-.sound-player-li {
-    display: inline !important;
 }
 
 .inner-table-td {

@@ -3,12 +3,14 @@
     <table style="width:100%;">
       <tr>
         <td style="width:100px;">
-          <a href="#">
-            <img id="track_artwork" class="media-object" src="{{track.artwork_url}}" alt="{{track.title}}">
-          </a>
+          <div id="track-artwork-div" class="hvr-grow-shadow">
+            <a href="/tracks/{{track.id}}">
+              <img id="track_artwork" class="media-object" src="{{track.artwork_url}}" alt="{{track.title}}">
+            </a>
+          </div>
         </td>
         <td>
-          <table id="sound-player-content-table">
+          <table>
             <tr>
               <td class="inner-table-td" style="width:50px;">
                   <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
@@ -16,15 +18,29 @@
                   </button>
               </td>
               <td class="inner-table-td">
-                <h6 style="margin-top:5px;margin-bottom:0px">{{track.user.username}}</h6>
-                <h4 style="margin-top:8px;margin-bottom:5px">{{track.title}}</h4>
+                <a href="/users/{{track.user.id}}" class="a-black-secondary">
+                <table>
+                  <tr>
+                    <td>
+                      <img src="{{track.user.avatar_url}}" class="media-object img-circle" style="width:20px;">
+                    </td>
+                    <td style="vertical-align:middle;" class="inner-table-td">
+                      <h6 style="margin-top:5px;margin-bottom:0px;">{{track.user.username}}</h6>
+                    </td>
+                  </tr>
+                </table>
+                </a>
+                <a href="/tracks/{{track.id}}" class="a-black-primary">
+                  <h4 style="margin-top:8px;margin-bottom:5px">{{track.title}}</h4>
+                </a>
               </td>
             </tr>
+          </table>
+          <table id="sound-player-content-table">
             <tr>
-              <td colspan="2" class="inner-table-td">
+              <td colspan="3" class="inner-table-td">
                 <div id="track-wave-form-super-container">
                   <div id="progression-bar"></div>
-                  <!-- <div id="progression-bar" ng-class="isPlaying ? 'progression-bar-active':'progression-bar-paused'" style="animation-duration:{{progressDuration}}ms;"></div> -->
                   <img id="track-wave-form" class="media-object" src="{{track.waveform_url}}" ng-click="onSeekClick($event)">
                 </div>
               </td>

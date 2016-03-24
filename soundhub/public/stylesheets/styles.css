@@ -7,8 +7,22 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.a-black-primary {
+  color: #2b2b2b;
+}
+
+.a-black-primary:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+.a-black-secondary {
+  color: #777777;
+}
+
+.a-black-secondary:hover {
+  text-decoration: none;
+  color: #2b2b2b;
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

@@ -1,4 +1,4 @@
-var app = angular.module('sndhub', ['ui.bootstrap', 'ngRoute']);
+var app = angular.module('sndhub', ['ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
