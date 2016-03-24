@@ -1,4 +1,7 @@
-app.controller('SoundPlayerCtrl', ['$scope', '$log', 'soundManager', function($scope, $log, soundManager) {  
+app.controller('SoundPlayerCtrl', ['$scope', '$log', 'soundManager', function($scope, $log, soundManager) {
+
+  $log.log($scope.$index);
+
   $scope.isPlaying = false;
   $scope.animationWidth = 0;
   var playCallback = function(trackDuration) {
@@ -9,7 +12,7 @@ app.controller('SoundPlayerCtrl', ['$scope', '$log', 'soundManager', function($s
     $scope.isPlaying = false;
   };
   var finishCallback = function () {
-    document.getElementById("progression-bar").style.width = '0%';
+    document.getElementById("progression-bar-"+$scope.$index).style.width = '0%';
     $scope.animationWidth = 0;
     $scope.isPlaying = false;
   }
@@ -38,7 +41,7 @@ app.controller('SoundPlayerCtrl', ['$scope', '$log', 'soundManager', function($s
   }
 
   var animateProgressionBar = function move() {
-    var elem = document.getElementById("progression-bar");
+    var elem = document.getElementById("progression-bar-"+$scope.$index);
     var id = setInterval(frame, 100);
     function frame() {
       if ($scope.animationWidth >= 100 || !$scope.isPlaying) {

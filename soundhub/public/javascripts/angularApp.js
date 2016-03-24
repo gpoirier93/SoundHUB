@@ -9,6 +9,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
                 templateUrl : '../templates/highlights.ejs',
                 controller  : 'HighlightsCtrl'
             })
+            .when('/tracks/:trackId', {
+                templateUrl : '../templates/track-page.ejs',
+                controller  : 'TrackPageCtrl'
+            })
             .otherwise({
               redirectTo: "/"
             });
@@ -18,8 +22,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 }]);
 
 app.controller('UnauthenticatedCtrl', ['$scope', function($scope) {
-    $scope.test = 'test';
-
     $scope.connect = function() {
       SC.connect();
     };

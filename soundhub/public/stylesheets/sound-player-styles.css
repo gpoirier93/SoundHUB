@@ -4,26 +4,9 @@
   border-radius: 22px;
 }
 
-@keyframes hover-animation{
-  from {
-     box-shadow: 0 0px 0px 0px #000000;
-     -webkit-transform: scale(1);
-     transform: scale(1);
-  } to {
-    box-shadow: 0 10px 10px -10px #000000;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.01);
-  }
-}
-
 #track-artwork {
   width: 100px ;
   height: 100px;
-}
-
-.img-brightness-invert {
-  /*-webkit-filter: opacity(0.5);
-  filter: invert(100%);*/
 }
 
 #track-artwork-div:hover {
@@ -37,17 +20,16 @@
   height: 50px;
   border-radius: 8px;
   position: relative;
-  /*background-color: white;*/
 }
 
 #track-wave-form,
-#progression-bar {
+.progression-bar {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-#progression-bar {
+.progression-bar {
   background-color: 888888;
   opacity: 0.6;
   width: 0%;
