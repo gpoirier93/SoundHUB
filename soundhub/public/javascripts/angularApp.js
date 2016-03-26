@@ -11,7 +11,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             })
             .when('/tracks/:trackId', {
                 templateUrl : '../templates/track-page.ejs',
-                controller  : 'TrackPageCtrl'
+                controller  : 'TrackPageCtrl',
+                resolve: {
+                  track: function($route, playlistFactory, SCService) {
+                    var track = playlistFactory.getPlaylistObject($route.current.params.trackId);
+                    if (track) {
+                      track.user_full = SCService.getUser(track.user.id);
+                      return track;
+                    } else {
+                      return SCService.getTrack($route.current.params.trackId);
+                    }
+                  }
+                }
             })
             .otherwise({
               redirectTo: "/"

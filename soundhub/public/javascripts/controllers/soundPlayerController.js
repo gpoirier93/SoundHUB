@@ -1,7 +1,5 @@
 app.controller('SoundPlayerCtrl', ['$scope', '$log', 'soundManager', function($scope, $log, soundManager) {
 
-  $log.log($scope.$index);
-
   $scope.isPlaying = false;
   $scope.animationWidth = 0;
   var playCallback = function(trackDuration) {

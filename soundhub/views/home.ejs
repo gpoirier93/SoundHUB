@@ -2,11 +2,11 @@
   <head>
     <title>sndhub</title>
     <base href="/"/>
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/sound-player-styles.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
     <link rel="stylesheet" href="/stylecheets/bootflat.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/sound-player-styles.css">
 
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
@@ -16,17 +16,20 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/services/soundManager.js"></script>
+    <script src="/javascripts/services/soundcloudService.js"></script>
     <script src="/javascripts/factories/authFactory.js"></script>
+    <script src="/javascripts/factories/playlistFactory.js"></script>
     <script src="/javascripts/controllers/homeController.js"></script>
     <script src="/javascripts/controllers/navigationBarController.js"></script>
     <script src="/javascripts/controllers/highlightsController.js"></script>
     <script src="/javascripts/controllers/soundPlayerController.js"></script>
+    <script src="/javascripts/controllers/trackPageController.js"></script>
   </head>
   <body ng-app="sndhub" ng-controller="HomeCtrl">
     <div id="main">
       <header>
         <div ng-controller="NavBarCtrl">
-          <nav class="navbar navbar-inverse navbar-fixed-top">
+          <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
               <!-- <div class="navbar-header">
                 <a class="navbar-brand" href="#">
@@ -44,7 +47,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right navBarContainer">
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px;"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
                     <ul class="dropdown-menu">
                       <li ng-repeat="option in navigationOptions"><a href="#">{{option}}</a></li>
                     </ul>

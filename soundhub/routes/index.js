@@ -12,4 +12,8 @@ router.get('/callback', function(req, res, next) {
   res.render('callback');
 });
 
+router.get('/api/currentPlaylist', function(req, res, next) {
+  
+});
+
 module.exports = router;
