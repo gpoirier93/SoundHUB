@@ -1,9 +1,14 @@
 app.service('SCService', ['$log', function($log) {
   this.getTrack = function(id) {
-    SC.get('/tracks/'+ id).then(function(track) {
-      SC.get('/users/'+ track.user.id).then(function(user) {
+    return SC.get('/tracks/'+ id).then(function(track) {
+      $log.log('track')
+      return SC.get('/users/'+ track.user.id).then(function(user) {
+        $log.log('user')
         track.user_full = user;
-        return track;
+        return SC.get('/tracks/'+ id +'/comments').then(function(comments) {
+            track.comments = comments;
+            return track;
+        });
       });
     });
   }

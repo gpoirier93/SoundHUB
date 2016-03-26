@@ -1,10 +1,13 @@
+<div class="popover.title">
+  <p>{{comment.user.username}}</p>
+</div>
 <div class="popover.content">
-  <img src="{{track.user.avatar_url}}" class="media-object img-circle">
+  <p>{{comment.body}}</p>
 </div>
 <script>
 $(document).ready(function(){
   jQuery.ajax({
-       url: "/templates/artist-popover.ejs"
+       url: "/templates/comment-popover.ejs"
   }).done(function( responseHtml ) {
     console.log(responseHtml);
     $('[data-toggle="popover"]').popover({

@@ -3,7 +3,7 @@
     <table style="width:100%;">
       <tr>
         <td style="width:100px;">
-          <div id="track-artwork-div">
+          <div class="track-artwork-div">
             <a href="/tracks/{{track.id}}">
               <img id="track_artwork" class="media-object img-rounded" src="{{track.artwork_url}}" alt="{{track.title}}">
             </a>
@@ -13,9 +13,9 @@
           <table>
             <tr>
               <td class="inner-table-td" style="width:50px;">
-                  <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
-                    <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
-                  </button>
+                <button id="play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
+                  <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
+                </button>
               </td>
               <td class="inner-table-td">
                 <div class="a-artist-small">
@@ -41,10 +41,10 @@
           <table id="sound-player-content-table">
             <tr>
               <td colspan="3" class="inner-table-td">
-                <div id="track-wave-form-super-container">
+                <div class="track-wave-form-super-container" id="track-wave-form-super-container">
                   <div class="track-wave-form-background"></div>
                   <div id="progression-bar-{{$index}}" class="progression-bar"></div>
-                  <img id="track-wave-form" class="media-object" src="{{track.waveform_url}}" ng-click="onSeekClick($event)">
+                  <img class="track-wave-form" class="media-object track-wave-form" src="{{track.waveform_url}}" ng-click="onSeekClick($event)">
                 </div>
               </td>
             </tr>

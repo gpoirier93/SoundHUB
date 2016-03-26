@@ -1,14 +1,87 @@
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-top:10px;">
   <div class="panel-body">
-    <div class="large-sound-player-widget">
-      <div id="large-sound-player-image-div">
-        <img src="{{track.artwork_url}}" alt="{{track.title}}" class="media-object img-rounded" id="large-sound-player-track-artwork"/>
-      </div>
+    <div class="large-sound-player-widget" style="width:100%;">
+      <table style="width:100%;">
+        <tr>
+          <td style="width:200px;">
+            <div class="track-artwork-div">
+              <a href="/tracks/{{track.id}}">
+                <img id="large-track-artwork" class="media-object img-rounded" src="{{track.artwork_url}}" alt="{{track.title}}">
+              </a>
+            </div>
+          </td>
+          <td>
+            <table style="margin-bottom:8px;">
+              <tr>
+                <td class="inner-table-td" style="width:64px;">
+                    <button id="large-play-button" class="btn btn-default" ng-click="isPlaying ? pause():play(track)">
+                      <span ng-class="isPlaying ? 'glyphicon glyphicon-pause' : 'glyphicon glyphicon-play'"/>
+                    </button>
+                </td>
+                <td class="inner-table-td">
+                  <div class="a-artist-small">
+                    <a href="/users/{{track.user.id}}" style="text-decoration:none;">
+                      <table>
+                        <tr>
+                          <td>
+                            <img src="{{track.user.avatar_url}}" class="media-object img-circle" style="width:20px;">
+                          </td>
+                          <td style="vertical-align:middle;" class="inner-table-td">
+                            <h4 style="margin-top:0px;margin-bottom:0px;" class="a-black-secondary">{{track.user.username}}</h6>
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                  </div>
+                  <a class="a-black-primary">
+                    <h2 style="margin-top:5px;margin-bottom:5px">{{track.title}}</h4>
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <table id="sound-player-content-table">
+              <tr>
+                <td colspan="3" class="inner-table-td">
+                  <div class="track-wave-form-super-container" id="large-track-wave-form-super-container">
+                    <div class="track-wave-form-background"></div>
+                    <div id="progression-bar-{{$index}}" class="progression-bar"></div>
+                    <img class="media-object track-wave-form" src="{{track.waveform_url}}" ng-click="onSeekClick($event)">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td class="inner-table-td" style="padding-top:8px;">
+            <div style="position:absolute;">
+              <ul id="player-comment-section" style="padding:0;margin:0px;white-space:nowrap;overflow:hidden;display:inline-block;">
+                <li ng-repeat="comment in track.comments | orderBy: '!-create_at'" style="display:inline-block;">
+                  <img src="{{comment.user.avatar_url}}" class="media-object img-circle" id="comment-img" style="width:20px" data-toggle="popover" title="{{comment.user.username}}" data-content="{{comment.body}}">
+                </li>
+              </ul>
+              <button class="btn btn-default btn-xs" style="vertical-align:top;height:20px;margin:0px;">...</button>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
     <div id="artist-section">
-      <img src="{{artist.avatar_url}}" alt="{{artist.username}}" class="media-object img-rounded"/>
+      <img src="{{track.user_full.avatar_url}}" alt="{{track.user_full.username}}" class="media-object img-rounded"/>
     </div>
     <div class="comment-section">
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function() {
+  console.log('yeah');
+  // $(function ()
+  // {
+    $('#comment-img').popover();
+  // });
+  $('#player-comment-section').width($('#large-track-wave-form-super-container').width()-40);
+});
+</script>
